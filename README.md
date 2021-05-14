@@ -1,2 +1,2 @@
 # api-template-crawler
-API interface to crawl the templates 
+Crawler to crawl Deployment-Helper templates and push crawled JSON format data in storage for further processing.
