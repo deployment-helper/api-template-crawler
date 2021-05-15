@@ -1,6 +1,11 @@
 package main
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"log"
+	"os"
+
+	"github.com/gofiber/fiber/v2"
+)
 
 func main() {
 	app := fiber.New()
@@ -9,5 +14,12 @@ func main() {
 		return c.SendString("Hello, World 👋!")
 	})
 
-	app.Listen(":3000")
+	// Determine port for HTTP service.
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000"
+		log.Printf("defaulting to port %s", port)
+	}
+
+	app.Listen(":" + port)
 }
