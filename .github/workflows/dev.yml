@@ -5,7 +5,7 @@ on:
       - dev
 
 jobs:
-  build-image:
+  GCP-Build-Deploy:
     runs-on: ubuntu-latest
     steps:
        - 
@@ -13,10 +13,10 @@ jobs:
         uses: actions/checkout@v2
        -
         name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v1
        -
         name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v1
        -
         name: Build Image 
         run: docker build -t us-central1-docker.pkg.dev/deployment-helper-dev/api-template-crawler/api-template-crawler:dev .
