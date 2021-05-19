@@ -22,7 +22,8 @@ func main() {
 	app.Use(logger.New())
 
 	app.Get("/health", func(c *fiber.Ctx) error {
-		return c.SendString("Health Ok")
+		c.Type("json")
+		return c.SendString("Ok Github")
 	})
 
 	app.Post("/v1/crawl", func(c *fiber.Ctx) error {
